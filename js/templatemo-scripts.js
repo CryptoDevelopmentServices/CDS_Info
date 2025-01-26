@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
   // Single Page Nav for highlighting nav items
   $("#tmMainNav").singlePageNav();
@@ -53,9 +54,6 @@ $(document).ready(function() {
           slidesToScroll: 1
         }
       }
-      // You can unslick at a given breakpoint now by adding:
-      // settings: "unslick"
-      // instead of a settings object
     ]
   });
 
@@ -82,4 +80,25 @@ $(document).ready(function() {
   $("#tmMainNav .nav-link").click(function(e) {
     $(".tm-sidebar").removeClass("show");
   });
+});
+
+// Light/Dark Mode Toggle
+document.addEventListener("DOMContentLoaded", function () {
+    const toggleButton = document.getElementById("themeToggle");
+    const body = document.body;
+
+    // Apply the saved theme on page load
+    const savedTheme = localStorage.getItem("theme") || "light-mode";
+    body.classList.add(savedTheme);
+
+    toggleButton.addEventListener("click", function () {
+        const currentTheme = body.classList.contains("dark-mode") ? "dark-mode" : "light-mode";
+        const newTheme = currentTheme === "light-mode" ? "dark-mode" : "light-mode";
+        
+        body.classList.remove(currentTheme);
+        body.classList.add(newTheme);
+
+        // Save the new theme to localStorage
+        localStorage.setItem("theme", newTheme);
+    });
 });

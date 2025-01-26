@@ -197,7 +197,7 @@
 
           
 
-          <div class="tm-section-wrap bg-white">
+          <div class="tm-section-wrap info-section">
             <section id="Whatiscds" class="row tm-section">
               <div class="col-xl-6">
                 <div class="tm-section-half">    
@@ -227,7 +227,7 @@
             </section>
           </div>
 
-          <div class="tm-section-wrap bg-white">
+          <div class="tm-section-wrap info-section">
             <section id="need4cds" class="row tm-section">
               <div class="col-xl-6">
                 <div class="tm-section-half">    
@@ -249,7 +249,7 @@
             </section>
           </div>
 
-          <div class="tm-section-wrap bg-white">
+          <div class="tm-section-wrap info-section">
             <section id="services" class="row tm-section">
               <div class="col-xl-6">
                 <div class="tm-section-half">    
@@ -273,7 +273,7 @@
             </section>
           </div>
 
-          <div class="tm-section-wrap bg-white">
+          <div class="tm-section-wrap info-section">
             <section id="keycomponents" class="row tm-section">
               <div class="col-xl-6">
                 <div class="tm-section-half">    
@@ -351,5 +351,25 @@
    <script src="slick/slick.min.js"></script>
    <script src="js/jquery.magnific-popup.min.js"></script>
    <script src="js/templatemo-scripts.js"></script>
+
+<!-- Light/Dark Mode Toggle -->
+<div class="theme-toggle-wrapper">
+  <button id="theme-toggle" class="theme-toggle">🌞</button>
+</div>
+<script>
+  const themeToggle = document.getElementById('theme-toggle');
+  const currentTheme = localStorage.getItem('theme') || 'light';
+
+  document.documentElement.setAttribute('data-theme', currentTheme);
+  themeToggle.textContent = currentTheme === 'dark' ? '🌙' : '🌞';
+
+  themeToggle.addEventListener('click', () => {
+    const newTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    themeToggle.textContent = newTheme === 'dark' ? '🌙' : '🌞';
+    localStorage.setItem('theme', newTheme);
+  });
+</script>
+
 </body>
 </html>
